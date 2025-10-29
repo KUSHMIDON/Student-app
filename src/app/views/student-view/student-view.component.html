@@ -1,0 +1,28 @@
+<div class="student-container">
+  <h2>Student Registration</h2>
+
+  <form (ngSubmit)="controller.saveStudent()" #studentForm="ngForm">
+    <input
+      type="text"
+      placeholder="Name"
+      [(ngModel)]="controller.newStudent.name"
+      name="name"
+      required
+    />
+    <input
+      type="text"
+      placeholder="Roll Number"
+      [(ngModel)]="controller.newStudent.rollNumber"
+      name="rollNumber"
+      required
+    />
+    <button type="submit">Save</button>
+  </form>
+
+  <h3>All Students</h3>
+  <ul>
+    <li *ngFor="let s of controller.students">
+      {{ s.id }} - {{ s.name }} ({{ s.rollNumber }})
+    </li>
+  </ul>
+</div>
